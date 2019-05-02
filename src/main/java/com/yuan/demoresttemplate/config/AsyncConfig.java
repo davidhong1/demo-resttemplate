@@ -31,7 +31,7 @@ public class AsyncConfig implements AsyncConfigurer {
         executor.setAwaitTerminationSeconds(60 * 10);
         // 拒绝task的处理策略, 当pool已经达到max size的时候, 抛出异常
         executor.setThreadNamePrefix("AsyncThread-");
-        //如果不初始化, 导致找到不到执行器
+        // 如果不初始化, 导致找到不到执行器
         executor.initialize();
         return executor;
     }
