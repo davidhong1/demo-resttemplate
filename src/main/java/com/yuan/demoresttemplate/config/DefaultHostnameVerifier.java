@@ -4,7 +4,9 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 
 /**
- * @author mac
+ * @author David Hong
+ * @version 1.0
+ * @description 域名验证类
  */
 public class DefaultHostnameVerifier implements HostnameVerifier {
 

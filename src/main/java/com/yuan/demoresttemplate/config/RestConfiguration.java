@@ -18,15 +18,20 @@ import java.nio.charset.StandardCharsets;
 import java.security.KeyStore;
 
 /**
- * @Description:
- * @Author: mac
- * @Date: 2019-03-15 14:34
- * @Version: 0.1
- **/
+ * @author David Hong
+ * @version 1.0
+ * @description RestTemplate配置类
+ */
 @Slf4j
 @Configuration
 public class RestConfiguration {
 
+    /**
+     * @author David Hong
+     * @description 普通RestTemplate
+     *
+     * @return org.springframework.web.client.RestTemplate
+     */
     @Bean("restTemplate20s")
     RestTemplate restTemplate20s() {
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
@@ -60,11 +65,22 @@ public class RestConfiguration {
         return restTemplate;
     }
 
-    // 客户证书验证密码，请根据outgoing.CertwithKey.pkcs12文件修改
+    /**
+     * 客户证书验证密码，请根据outgoing.CertwithKey.pkcs12文件修改
+     */
     private static String SELFCERTPWD = "12345";
-    // 信任客户端验证密码，请根据ca.jks文件修改
+
+    /**
+     * 信任客户端验证密码，请根据ca.jks文件修改
+     */
     private static String TRUSTCAPWD = "54321";
 
+    /**
+     * @author David Hong
+     * @description 初始化ssl证书
+     * 
+     * @return org.apache.http.impl.client.CloseableHttpClient
+     */
     public CloseableHttpClient initSSLConfig() throws Exception {
 
         // 1 设置客户端证书
@@ -91,7 +107,6 @@ public class RestConfiguration {
                 .build();
 
         return httpClient;
-
     }
 
 }
